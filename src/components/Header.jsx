@@ -1,34 +1,33 @@
 export default function Header({ language }) {
   return (
-    <div className="animate-slide-up flex flex-col items-center mb-6 md:mb-10 pt-4">
+    <div className="animate-slide-up flex flex-col items-center mb-4 md:mb-6">
       {/* Brand Badge */}
-      <div className="group bg-white border-4 border-black rounded-2xl px-5 py-2 flex items-center gap-3 mb-6 shadow-[8px_8px_0_0_#000] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0_0_#000] transition-all cursor-default">
-        <span className="text-2xl md:text-3xl animate-bounce">💀</span>
-        <div className="flex flex-col -space-y-1.5">
-          <span className="text-lg md:text-xl font-black uppercase tracking-tighter text-black">
-            {language === 'malayalam' ? 'കടക്ക് പുറത്ത്' : 'Unfiltered'}
+      <div className="bg-white border-2 border-black rounded-full px-4 py-1.5 flex items-center gap-2.5 mb-5 shadow-[3px_3px_0_0_#000] animate-float">
+        <span className="text-lg md:text-xl">💀</span>
+        <div className="flex flex-col -space-y-1">
+          <span className="text-base md:text-lg font-black uppercase tracking-tighter text-black">
+            {language === 'malayalam' ? 'താൻ ചോദിക്ക്' : 'Unfiltered'}
           </span>
-          <span className="text-[8px] font-black text-neon-orange uppercase tracking-[0.2em] text-center">
-            Candidate AI
+          <span className="text-[7px] font-black text-gray-400 uppercase tracking-widest text-center">
+            Candidate
           </span>
         </div>
       </div>
 
       <div className="text-center px-4 max-w-2xl">
-        <h1 className="text-3xl md:text-6xl font-[900] text-black leading-[0.9] tracking-tighter mb-4">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight mb-2">
           {language === 'malayalam' ? (
-            <>ഓരോരോ <br /><span className="text-red-500 underline decoration-4 underline-offset-8">തള്ളുകൾ!</span></>
+            <>കടക്ക് പുറത്ത്! <br /><span className="text-gray-400 font-extrabold">റോസ്റ്റ് ചെയ്യാം.</span></>
           ) : (
-            <>Stop the <br /><span className="text-red-500 underline decoration-8 underline-offset-10">Corporate BS.</span></>
+            <>HR questions are <br /><span className="text-gray-400 font-extrabold">pure comedy.</span></>
           )}
         </h1>
-        <p className="text-xs md:text-sm text-gray-400 font-black uppercase tracking-widest opacity-80 max-w-md mx-auto leading-relaxed mt-6">
+        <p className="text-xs md:text-sm text-gray-500 font-bold uppercase tracking-tight opacity-70">
           {language === 'malayalam'
-            ? 'HR ചോദ്യങ്ങളിലെ കപടത റോസ്റ്റ് ചെയ്യാൻ ഒരു AI.'
-            : 'AI roasts for interview questions that make you want to quit.'}
+            ? 'കപടതയില്ലാത്ത മറുപടികൾക്ക് സ്വാഗതം.'
+            : 'Unfiltered AI roasts for the corporate delusional.'}
         </p>
       </div>
     </div>
   );
 }
-
