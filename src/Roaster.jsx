@@ -75,11 +75,11 @@ export default function Roaster() {
           </div>
         )}
 
-        <RoastResult result={result} language={language} />
+        <RoastResult result={result} language={language} question={question} />
       </div>
 
       <div className="mt-auto">
-        <Footer />
+        <Footer language={language} />
       </div>
     </div>
   );

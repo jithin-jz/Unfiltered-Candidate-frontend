@@ -13,7 +13,10 @@
     "@tailwindcss/vite": "^4.1.17",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "framer-motion": "^12.34.5",
     "lucide-react": "^0.555.0",
+    "motion": "^12.34.5",
+    "motion-dom": "^12.34.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

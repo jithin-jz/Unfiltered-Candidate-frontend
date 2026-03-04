@@ -1,22 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --neon-yellow: #f4d03f;
   --bg-creme: #fafaf9;
   --border-black: #111111;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
 }
 
 body {
@@ -24,6 +10,17 @@ body {
   color: var(--border-black);
   overflow-x: hidden;
   height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes float {
@@ -38,16 +35,14 @@ body {
   }
 }
 
-@keyframes score-grow {
-  from {
-    width: 0%;
-  }
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
 
-@keyframes slide-up {
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
 
   to {
@@ -56,43 +51,38 @@ body {
   }
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
 }
 
-.animate-slide-up {
-  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
 }
 
-.brutalist-card {
-  background: white;
-  border: 2.5px solid var(--border-black);
-  box-shadow: 4px 4px 0px 0px var(--border-black);
-  transition: all 0.2s ease;
+.animate-shake {
+  animation: shake 0.2s ease-in-out;
 }
 
-.brutalist-card:hover {
-  box-shadow: 2px 2px 0px 0px var(--border-black);
-  transform: translate(2px, 2px);
+.delay-100 {
+  animation-delay: 100ms;
 }
 
-.brutalist-button {
-  background: var(--neon-yellow);
-  border: 2px solid var(--border-black);
-  box-shadow: 4px 4px 0px 0px var(--border-black);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.1s ease;
+.delay-200 {
+  animation-delay: 200ms;
 }
 
-.brutalist-button:active {
-  box-shadow: 0px 0px 0px 0px var(--border-black);
-  transform: translate(4px, 4px);
-}
-
-.brutalist-button:disabled {
-  opacity: 0.5;
-  box-shadow: none;
-  transform: none;
+.delay-300 {
+  animation-delay: 300ms;
 }
