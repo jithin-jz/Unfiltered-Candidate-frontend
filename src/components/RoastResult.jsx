@@ -104,17 +104,39 @@ Think you can handle the truth? Try it yourself! 👇
         )}
 
         {/* Header */}
-        <div className="text-center mb-6">
-          <h3 className="font-black text-xl text-gray-900 uppercase tracking-wider">
-            {language === 'malayalam' ? 'റോസ്റ്റ് ഔട്ട്പുട്ട്' : 'ROASTED OUTPUT'}
-          </h3>
+        <div className="flex justify-between items-center mb-10 border-b-2 border-black/5 pb-4">
+          <div className="flex flex-col">
+            <h3 className="font-black text-xs text-[#556987] uppercase tracking-[0.2em]">
+              {language === 'malayalam' ? 'ഔദ്യോഗിക റിപ്പോർട്ട്' : 'OFFICIAL CASE REPORT'}
+            </h3>
+            <span className="text-[10px] font-bold text-gray-400">REF: ROAST-2024-UX-💀</span>
+          </div>
+          <div className="bg-black text-[10px] text-white px-2 py-1 rounded font-black tracking-widest uppercase">
+            {language === 'malayalam' ? 'അത്യാപത്ത്' : 'CRITICAL FAILURE'}
+          </div>
         </div>
 
         {/* Content */}
-        <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed mb-10 text-center">
-          {result.roasted_answer}
-        </p>
+        <div className="mb-12 relative">
+          <div className="absolute -left-4 top-0 bottom-0 w-1 bg-[#F4D03F]" />
+          <p className="text-xl md:text-2xl font-black text-gray-900 leading-[1.4] tracking-tight italic">
+            "{result.roasted_answer}"
+          </p>
+        </div>
 
+        {/* Red Flags Section */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+          {[
+            { label: language === 'malayalam' ? 'അനാവശ്യ തള്ളുകൾ' : 'GASLIGHTING LEVEL', value: 'MAX' },
+            { label: language === 'malayalam' ? 'ജീവിതം ഗോപി' : 'SURVIVAL RATE', value: '0.02%' },
+            { label: language === 'malayalam' ? 'പണി പാളി' : 'HIRE-ABILITY', value: 'NONE' }
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col gap-1 border-l-2 border-gray-100 pl-3">
+              <span className="text-[8px] font-black text-gray-400 uppercase tracking-widest">{stat.label}</span>
+              <span className="text-xs font-black text-black">{stat.value}</span>
+            </div>
+          ))}
+        </div>
         {/* Footer Section */}
         <div className="flex flex-col md:flex-row items-end justify-between gap-6">
 

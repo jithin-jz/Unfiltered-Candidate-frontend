@@ -6,12 +6,17 @@ import InstagramIcon from '@/components/ui/instagram-icon';
 export default function Footer({ language }) {
   return (
     <footer className="mt-auto pt-12 pb-8 text-sm font-medium text-gray-400">
-      <div className="flex flex-col items-center justify-center gap-8">
-        <h1 className="text-center italic opacity-60">
-          {language === 'malayalam'
-            ? '“പണികിട്ടാൻ വേണ്ടി മാത്രം നിർമ്മിച്ചത്”'
-            : '“Built to ruin your chances of employment”'}
-        </h1>
+      <div className="flex flex-col items-center justify-center gap-10">
+        <div className="text-center space-y-1">
+          <h1 className="italic opacity-40 font-bold">
+            {language === 'malayalam'
+              ? '“നിങ്ങളുടെ ജോലി സാധ്യതകൾ വിജയകരമായി ഇല്ലാതാക്കി.”'
+              : '“Successfully eliminating your career prospects since 2024.”'}
+          </h1>
+          <p className="text-[10px] uppercase tracking-[0.4em] opacity-30 font-black">
+            Corporate Destruction Division
+          </p>
+        </div>
 
         {/* Social Icons */}
         <div className="flex justify-center items-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
