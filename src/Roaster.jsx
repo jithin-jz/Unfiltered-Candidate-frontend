@@ -75,7 +75,11 @@ export default function Roaster() {
           </div>
         )}
 
-        <RoastResult result={result} language={language} />
+        <RoastResult
+          key={result ? Date.now() : 'empty'}
+          result={result}
+          language={language}
+        />
       </div>
 
       <div className="mt-auto">
