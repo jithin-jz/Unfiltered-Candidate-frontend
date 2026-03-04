@@ -10,12 +10,14 @@ export default function Roaster() {
   const [language, setLanguage] = useState('english');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleRoast = async () => {
-    if (!question.trim()) return;
+    if (!question.trim() || question.trim().length < 5) return;
 
     setLoading(true);
     setResult(null);
+    setError(null);
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
@@ -25,35 +27,56 @@ export default function Roaster() {
         body: JSON.stringify({ question, language }),
       });
 
-      if (!response.ok) throw new Error('Failed');
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.detail || 'AI had a seizure.');
+      }
+
       const data = await response.json();
       setResult(data);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleKeyDown = (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      handleRoast();
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center py-12 px-4 font-sans relative bg-white text-gray-900 selection:bg-blue-100">
-      
+    <div
+      className="min-h-screen w-full flex flex-col items-center justify-start py-8 px-4"
+      onKeyDown={handleKeyDown}
+    >
       <LanguageSwitcher language={language} setLanguage={setLanguage} />
 
-      <Header language={language} />
+      <div className="w-full flex flex-col items-center">
+        <Header language={language} />
 
-      <RoastInput 
-        question={question} 
-        setQuestion={setQuestion} 
-        handleRoast={handleRoast} 
-        loading={loading} 
-        language={language} 
-      />
+        <RoastInput
+          question={question}
+          setQuestion={setQuestion}
+          handleRoast={handleRoast}
+          loading={loading}
+          language={language}
+        />
 
-      <RoastResult result={result} language={language} question={question} />
+        {error && (
+          <div className="mt-4 px-6 py-2 bg-red-100 border-2 border-red-500 text-red-700 font-black text-[10px] uppercase tracking-widest rounded-full animate-shake">
+            {error}
+          </div>
+        )}
 
-      <Footer />
+        <RoastResult result={result} language={language} />
+      </div>
 
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -1,31 +1,33 @@
-import React from 'react';
-
 export default function Header({ language }) {
   return (
-    <>
-      {/* Header Pill */}
-      <div className="bg-[#FFF8E7] rounded-full px-6 py-3 md:px-10 md:py-4 flex items-center justify-center gap-4 mb-8 animate-fade-in border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative">
-        <img src="https://img.icons8.com/bubbles/100/mad-libs.png" alt="Icon" className="w-12 h-12 md:w-14 md:h-14 -ml-2" />
-        <div className="flex flex-col items-center leading-none gap-0.5 md:gap-1">
-          <span className="text-xl md:text-3xl font-black text-black tracking-tighter uppercase">
-            {language === 'malayalam' ? 'താൻ ചോദിച്ചു' : 'You Questioned'}
+    <div className="animate-slide-up flex flex-col items-center mb-4 md:mb-6">
+      {/* Brand Badge */}
+      <div className="bg-white border-2 border-black rounded-full px-4 py-1.5 flex items-center gap-2.5 mb-5 shadow-[3px_3px_0_0_#000] animate-float">
+        <span className="text-lg md:text-xl">💀</span>
+        <div className="flex flex-col -space-y-1">
+          <span className="text-base md:text-lg font-black uppercase tracking-tighter text-black">
+            {language === 'malayalam' ? 'താൻ ചോദിക്ക്' : 'Unfiltered'}
           </span>
-          <span className="text-[9px] md:text-[11px] font-bold text-slate-600 uppercase tracking-[0.2em]">
-            The Unfiltered Candidate
+          <span className="text-[7px] font-black text-gray-400 uppercase tracking-widest text-center">
+            Candidate
           </span>
         </div>
       </div>
 
-      {/* Main Heading */}
-      <div className="text-center space-y-4 mb-12 max-w-2xl">
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight leading-tight">
-          Ask your cringe <br className="hidden md:block" />
-          <span className="text-gray-400">HR question.</span>
+      <div className="text-center px-4 max-w-2xl">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight mb-2">
+          {language === 'malayalam' ? (
+            <>കടക്ക് പുറത്ത്! <br /><span className="text-gray-400 font-extrabold">റോസ്റ്റ് ചെയ്യാം.</span></>
+          ) : (
+            <>HR questions are <br /><span className="text-gray-400 font-extrabold">pure comedy.</span></>
+          )}
         </h1>
-        <p className="text-lg text-gray-500 font-medium">
-          {language === 'malayalam' ? 'നമ്മൾ റോസ്റ്റ് ചെയ്യാം.' : 'We will roast it.'}
+        <p className="text-xs md:text-sm text-gray-500 font-bold uppercase tracking-tight opacity-70">
+          {language === 'malayalam'
+            ? 'കപടതയില്ലാത്ത മറുപടികൾക്ക് സ്വാഗതം.'
+            : 'Unfiltered AI roasts for the corporate delusional.'}
         </p>
       </div>
-    </>
+    </div>
   );
 }
