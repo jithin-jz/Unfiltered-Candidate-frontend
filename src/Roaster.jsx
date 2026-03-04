@@ -20,7 +20,11 @@ export default function Roaster() {
     setError(null);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      // Clean up apiUrl to prevent double slashes
+      if (apiUrl.endsWith('/')) {
+        apiUrl = apiUrl.slice(0, -1);
+      }
       const response = await fetch(`${apiUrl}/api/roast`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
