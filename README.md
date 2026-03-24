@@ -67,3 +67,5 @@ This frontend uses the latest **Tailwind CSS v4** setup:
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
 ***Created with ☕ and maximum corporate cynicism.***
+
+
