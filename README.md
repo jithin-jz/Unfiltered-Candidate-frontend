@@ -1,6 +1,6 @@
 # 💀 The Unfiltered Candidate (Frontend)
 
-![Banner](./src/assets/banner.png)
+![Banner](./src/assets/hr.png)
 
 [![Framework](https://img.shields.io/badge/Frontend-React--Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![Status](https://img.shields.io/badge/Status-Modernized-success?style=for-the-badge)](https://github.com/jithin-jz)
